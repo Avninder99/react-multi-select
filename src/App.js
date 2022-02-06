@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import MultiSelect from './multi_select/multi_select';
 import './App.css';
 
 function App() {
+  const options = [
+    { label: 'Apples', value: 'apples' },
+    { label: 'Oranges', value: 'oranges' },
+    { label: 'Pineapples', value: 'pineapples' },
+    { label: 'Grapes', value: 'grapes' },
+    { label: 'Kiwis', value: 'kiwis' },
+  ];
+
+  const [selected, setSelected] = useState([]);
+  console.log(selected)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MultiSelect
+        options={options}
+        onChange={setSelected}
+        value={selected}
+        label="fruits"
+      />
     </div>
   );
 }
