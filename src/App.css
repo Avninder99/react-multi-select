@@ -1,14 +1,49 @@
 .App {
   text-align: center;
+  margin: auto;
+  width: 300px;
+  margin-top: 100px;
 }
-.base-div {
+.opt-div {
   margin: 10% auto;
   border: 2px black solid;
-  max-width: 300px;
+  /* max-width: 300px; */
+  width: 100%;
+  max-height: 400px;
+  overflow-y: scroll;
 }
 .opt-holder {
-  width: 100%;
+  width: calc(100%-20px);
   height: 50px;
   padding: auto;
   border: blue 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+.search {
+  
+}
+.holder-div {
+  position: absolute;
+  width: 300px;
+}
+.dropdown-div {
+  border: 2px solid darkgray;
+  border-radius: 10px;
+  height: 30px;
+}
+.hider {
+  display: none;
+}
+.show-div{
+  height: 50px;
+  border: darkmagenta 2px solid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.show-name {
+  margin-left: 5px;
 }
