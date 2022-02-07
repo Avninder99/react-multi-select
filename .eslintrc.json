@@ -20,6 +20,7 @@
     "rules": {
         "linebreak-style": 0,
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/react-in-jsx-scope": "off",
         "semi": 0,
         "jsx-a11y/aria-role": [ 0, {
             "allowedInvalidRoles": [],
