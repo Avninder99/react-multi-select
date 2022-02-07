@@ -11,6 +11,7 @@ export default function MultiSelect(
   const options2 = useRef(options);
   const [openDropdown, setOpenDropdown] = useState(false);
   const [searchValue, setSearchValue] = useState('');
+  const [selectAll, setSelectAll] = useState(false);
   const temp = {};
   const re = new RegExp(searchValue, 'gi');
 
@@ -28,17 +29,22 @@ export default function MultiSelect(
       temp.value = e.target.value;
       onChange([...value, temp]);
     } else {
+      if (selectAll) {
+        setSelectAll(false);
+      }
       options2.current[parseInt(e.target.id, 10)].isChecked = false;
       onChange(value.filter((ele) => ele.value !== e.target.value));
     }
   }
   const handleChange2 = (e) => {
     if (e.target.checked) {
+      setSelectAll(true);
       options2.current.forEach((element) => {
         element.isChecked = true;
       });
       onChange([...options2.current]);
     } else {
+      setSelectAll(false);
       options2.current.forEach((element) => {
         element.isChecked = false;
       });
@@ -72,7 +78,7 @@ export default function MultiSelect(
         </div>
         <div className="opt-div">
           <div className={re.test('Select All') ? 'opt-holder' : 'opt-holder hider'}>
-            <input type="checkbox" id="Select All" name={label} value="select_all" onClick={(e) => handleChange2(e)} />
+            <input type="checkbox" id="Select All" name={label} value="select_all" onClick={(e) => handleChange2(e)} checked={selectAll} />
             <label className="label" htmlFor="Select All">Select All</label>
           </div>
           {

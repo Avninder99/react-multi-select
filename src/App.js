@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import MultiSelect from './multi_select/multi_select';
+import MultiSelect from './multi_select/MultiSelect';
 import './App.css';
 
 function App() {
