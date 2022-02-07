@@ -14,32 +14,30 @@ function App() {
     { label: 'Watermelons', value: 'watermelons' },
     { label: 'Guavas', value: 'guavas' },
     { label: 'Strawberries', value: 'strawberries' },
-    { label: 'Dragon Fruit', value: 'dragon fruit' },
+    { label: 'Melons', value: 'melons' },
     { label: 'Tomatoes', value: 'tomatoes' },
   ];
-
   const [selected, setSelected] = useState([]);
-  console.log("============")
-  console.log(selected)
+
   return (
     <div className="App">
-      <div className='show-div'>
+      <div className="show-div">
         {
-          selected.map(selectedFruit => {
-            return (
-              <div className='show-name'>
-                {selectedFruit.label},
-              </div>
-            )
-          })
+          selected.map((selectedFruit) => (
+            <div className="show-name">
+              {selectedFruit.label}
+            </div>
+          ))
         }
       </div>
-      <MultiSelect
-        options={options}
-        onChange={setSelected}
-        value={selected}
-        label="fruits"
-      />
+      <div className="multi-select">
+        <MultiSelect
+          options={options}
+          onChange={setSelected}
+          value={selected}
+          label="fruits"
+        />
+      </div>
     </div>
   );
 }
